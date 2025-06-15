@@ -33,7 +33,6 @@ public:
     explicit MediaProvider(QObject* parent = nullptr);
 
     Provider& run(SearchContext&) final;
-};
 
 private:
     QString m_cache_path;
