@@ -33,6 +33,12 @@
 #include <QStringList>
 #include <array>
 
+#include "Log.h"
+#include "Paths.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QStandardPaths>
 
 namespace {
 const QStringList& allowed_asset_exts(AssetType type)
