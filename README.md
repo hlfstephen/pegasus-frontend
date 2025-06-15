@@ -1,5 +1,10 @@
-声明：如使用本项目修改过的代码，请注明出处（作者：蜜仔）。
-本项目对天马前端项目进行修改，加入各种优化机制，显著提高天马加载速度。
+## 声明：
+本项目基于天马前端pegasus-frontend项目（作者：mmatyas）修改。
+如使用本项目修改过的代码，请注明出处（作者：蜜仔，QQ363647869）。
+
+## 项目说明
+1.加入各种优化机制，显著提高天马加载速度。
+2.程序在内置内存或者Android/Data/org.pegasus_frontend.android目录的pegasus-frontend文件夹下生成media_cache.json。如添加新游戏请手动删除。
 
 ![screenshot](etc/promo/screenshot_alpha10.jpg)
 
