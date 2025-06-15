@@ -1,5 +1,6 @@
 // Pegasus Frontend
 // Copyright (C) 2017  Mátyás Mustoha
+// Modified by hlfstephen, 2025-06-15
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -97,6 +98,47 @@ AssetType str_to_type(const QString& str)
     }
 
     return AssetType::UNKNOWN;
+}
+
+// 自定义哈希函数：直接将 AssetType 转换为 size_t
+struct AssetTypeHash {
+    size_t operator()(AssetType type) const noexcept {
+        // 由于 AssetType 底层是 unsigned char（enum class AssetType : unsigned char），
+        // 直接转换为 size_t 即可作为哈希值
+        return static_cast<size_t>(type);
+    }
+};
+
+// 新增：将 AssetType 枚举转换为标准字符串（与 str_to_type 逻辑一致）
+QString type_to_str(AssetType type)
+{
+    // 使用下划线分隔的小写字符串作为标准表示（与 map 中的常见键格式一致）
+    static const HashMap<AssetType, QString, AssetTypeHash> reverse_map {
+        { AssetType::BOX_FRONT,      QStringLiteral("box_front") },
+        { AssetType::BOX_BACK,       QStringLiteral("box_back") },
+        { AssetType::BOX_SPINE,      QStringLiteral("box_spine") },
+        { AssetType::BOX_FULL,       QStringLiteral("box_full") },
+        { AssetType::CARTRIDGE,      QStringLiteral("cartridge") },
+        { AssetType::LOGO,           QStringLiteral("logo") },
+        { AssetType::ARCADE_MARQUEE, QStringLiteral("marquee") },
+        { AssetType::ARCADE_BEZEL,   QStringLiteral("bezel") },
+        { AssetType::ARCADE_PANEL,   QStringLiteral("panel") },
+        { AssetType::ARCADE_CABINET_L, QStringLiteral("cabinet_left") },
+        { AssetType::ARCADE_CABINET_R, QStringLiteral("cabinet_right") },
+        { AssetType::UI_TILE,        QStringLiteral("tile") },
+        { AssetType::UI_BANNER,      QStringLiteral("banner") },
+        { AssetType::UI_STEAMGRID,   QStringLiteral("steamgrid") },
+        { AssetType::POSTER,         QStringLiteral("poster") },
+        { AssetType::BACKGROUND,     QStringLiteral("background") },
+        { AssetType::MUSIC,          QStringLiteral("music") },
+        { AssetType::SCREENSHOT,     QStringLiteral("screenshot") },
+        { AssetType::VIDEO,          QStringLiteral("video") },
+        { AssetType::TITLESCREEN,    QStringLiteral("titlescreen") },
+        { AssetType::UNKNOWN,        QStringLiteral("unknown") }, // 默认未知类型
+    };
+
+    const auto it = reverse_map.find(type);
+    return (it != reverse_map.cend()) ? it->second : QStringLiteral("unknown");
 }
 
 } // namespace pegasus_assets
