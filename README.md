@@ -4,7 +4,7 @@
 
 ## 项目说明
 1.加入各种优化机制，显著提高天马加载速度。
-2.程序在内置内存或者Android/Data/org.pegasus_frontend.android目录的pegasus-frontend文件夹下生成media_cache.json。如添加新游戏请手动删除。
+2.程序在内置内存的pegasus-frontend文件夹下生成缓存文件media_cache.json。如在media目录修改素材，请手动删除。
 
 ![screenshot](etc/promo/screenshot_alpha10.jpg)
 
