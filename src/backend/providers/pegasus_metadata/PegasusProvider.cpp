@@ -29,30 +29,14 @@
 
 
 namespace {
-bool is_metadata_file(const QString& filename)
-{
-    return filename == QLatin1String("metadata.pegasus.txt")
-        || filename == QLatin1String("metadata.txt")
-        || filename.endsWith(QLatin1String(".metadata.pegasus.txt"))
-        || filename.endsWith(QLatin1String(".metadata.txt"));
-}
-
 std::vector<QString> find_metafiles_in(const QString& dir_path)
 {
-    constexpr auto dir_filters = QDir::Files | QDir::NoDotAndDotDot;
-    constexpr auto dir_flags = QDirIterator::FollowSymlinks;
-
     std::vector<QString> result;
-
-    QDirIterator dir_it(dir_path, dir_filters, dir_flags);
-    while (dir_it.hasNext()) {
-        dir_it.next();
-        if (is_metadata_file(dir_it.fileName())) {
-            QString path = ::clean_abs_path(dir_it.fileInfo());
-            result.emplace_back(std::move(path));
-        }
+    QDir dir(dir_path);
+    
+    if (dir.exists("metadata.pegasus.txt")) {
+        return { QDir::cleanPath(dir_path + QLatin1String("/metadata.pegasus.txt")) };
     }
-
     return result;
 }
 
