@@ -5,7 +5,7 @@
 
 ## 项目说明
 - 加入各种优化机制，显著提高天马加载速度。
-- 由于使用缓存机制加速，如需修改media目录的素材，请手动删除内置内存的pegasus-frontend目录下的缓存文件media_cache.json。
+- 由于使用缓存机制加速，如需修改media目录的素材，请手动删除内置存储pegasus-frontend目录下的缓存文件media_cache.json。
 
 ![screenshot](etc/promo/screenshot_alpha10.jpg)
 
