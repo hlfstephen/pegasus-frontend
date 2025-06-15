@@ -1,5 +1,6 @@
 // Pegasus Frontend
 // Copyright (C) 2017-2020  Mátyás Mustoha
+// Modified by hlfstephen, 2025-06-15
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
