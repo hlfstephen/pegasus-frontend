@@ -1,10 +1,11 @@
 ## 声明：
-本项目基于天马前端pegasus-frontend项目（作者：mmatyas）修改。
-如使用本项目修改过的代码，请注明出处（作者：蜜仔，QQ363647869）。
+- 本项目基于天马前端pegasus-frontend项目（作者：mmatyas）修改。
+- 如使用本项目修改过的代码，请注明出处（作者：蜜仔，QQ363647869）。
+- 特别感谢跳坑者联盟的大光圈先森、Alex的指导与技术支持导。
 
 ## 项目说明
-1.加入各种优化机制，显著提高天马加载速度。
-2.程序在内置内存的pegasus-frontend文件夹下生成缓存文件media_cache.json。如需修改media目录的素材，请手动删除。
+- 加入各种优化机制，显著提高天马加载速度。
+- 由于使用缓存机制加速，如需修改media目录的素材，请手动删除内置内存的pegasus-frontend目录下的缓存文件media_cache.json。
 
 ![screenshot](etc/promo/screenshot_alpha10.jpg)
 
