@@ -1,5 +1,6 @@
 // Pegasus Frontend
 // Copyright (C) 2017  Mátyás Mustoha
+// Modified by hlfstephen, 2025-06-15
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,5 +25,6 @@ enum class AssetType : unsigned char;
 namespace pegasus_assets {
 
 AssetType str_to_type(const QString&);
+QString type_to_str(AssetType type);
 
 } // namespace pegasus_assets
