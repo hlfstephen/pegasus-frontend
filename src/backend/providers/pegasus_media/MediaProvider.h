@@ -18,6 +18,8 @@
 #pragma once
 
 #include "providers/Provider.h"
+#include <QJsonObject>
+#include <QString>
 
 
 namespace providers {
@@ -30,6 +32,14 @@ public:
     explicit MediaProvider(QObject* parent = nullptr);
 
     Provider& run(SearchContext&) final;
+};
+
+private:
+    QString m_cache_path;
+    QJsonObject m_cache_data;
+
+    void load_cache();
+    void save_cache();
 };
 
 } // namespace media
