@@ -52,8 +52,7 @@ void create_dir_if_not_exists(const QString& dir_path)
 QString get_appconfig_dir()
 {
 #ifdef Q_OS_ANDROID
-    const QString dir_path = QSP::writableLocation(QSP::GenericDataLocation)
-                           + QStringLiteral("/pegasus-frontend");
+    const QString dir_path = QStringLiteral("/storage/emulated/0/pegasus-frontend");
 #else
     QString dir_path = AppSettings::general.portable
         ? paths::app_dir_path() + QStringLiteral("/config")

@@ -1,5 +1,6 @@
 // Pegasus Frontend
 // Copyright (C) 2017-2020  Mátyás Mustoha
+// Modified by hlfstephen, 2025-06-15
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -99,8 +100,8 @@ void ProviderManager::run()
         m_current_stage = QString();
         emit scanProgressChanged(m_current_progress, m_current_stage);
 
-
-        if (sctx.has_pending_downloads()) {
+        //注释掉等待网络资源下载的代码
+        /*if (sctx.has_pending_downloads()) {
             QElapsedTimer network_timer;
             network_timer.start();
 
@@ -112,7 +113,7 @@ void ProviderManager::run()
             loop.exec();
 
             Log::info(LOGMSG("Waiting for online sources took %1ms").arg(network_timer.elapsed()));
-        }
+        }*/
 
 
         QElapsedTimer finalize_timer;

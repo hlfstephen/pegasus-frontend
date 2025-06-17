@@ -1,5 +1,6 @@
 // Pegasus Frontend
 // Copyright (C) 2017-2020  Mátyás Mustoha
+// Modified by hlfstephen, 2025-06-15
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -18,6 +19,8 @@
 #pragma once
 
 #include "providers/Provider.h"
+#include <QJsonObject>
+#include <QString>
 
 
 namespace providers {
@@ -30,6 +33,13 @@ public:
     explicit MediaProvider(QObject* parent = nullptr);
 
     Provider& run(SearchContext&) final;
+
+private:
+    QString m_cache_path;
+    QJsonObject m_cache_data;
+
+    void load_cache();
+    void save_cache();
 };
 
 } // namespace media
